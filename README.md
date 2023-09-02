@@ -1,6 +1,6 @@
 # Beyondcc Movies API
 
-This is a simple Flask-based RESTful API for managing a collection of movies. With this API, you can perform basic CRUD (Create, Read, Update, Delete) operations on a list of movies. It's a great starting point for building your movie catalog or integrating movie data into your application.
+This is a simple Flask-based RESTful API for managing a collection of movies. With this API, you can perform basic CRUD (Create, Read, Update, Delete) operations on a list of movies.
 
 ## Table of Contents
 
@@ -15,11 +15,11 @@ This is a simple Flask-based RESTful API for managing a collection of movies. Wi
 
 ## Features
 
-- Add new movies with details like title, genre, release year, and director.
+- Add new movies with details like title, genre, release year, and director (Admin only).
 - Retrieve a list of all movies.
-- Get details of a specific movie by its ID.
-- Update movie information.
-- Delete a movie from the catalog.
+- Get details of a specific movie by its name.
+- Update movie information(Admin only).
+- Delete a movie from the catalog(Admin only).
 
 ## Getting Started
 
@@ -33,4 +33,5 @@ Follow these instructions to set up and run the Flask Movies API on your local m
 ### Installation
 
 1. Clone this repository to your local machine:
+'git clone https://github.com/yourusername/flask-movies-api.git'
 
