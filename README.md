@@ -17,7 +17,7 @@ This is a simple Flask-based RESTful API for managing a collection of movies. Wi
 
 - Add new movies with details like title, genre, release year, and director (Admin only).
 - Retrieve a list of all movies.
-- Get details of a specific movie by its name.
+- Get details of a specific movie by its ID.
 - Update movie information(Admin only).
 - Delete a movie from the catalog(Admin only).
 
@@ -66,3 +66,12 @@ flask run
 ```
 2. Your API should now be running at `http://localhost:5000`.
 3. You can use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to interact with the API endpoints.
+
+## API Endpoints
+
+- **GET** `/movies`: Retrieve a list of all movies.
+- **GET** `/movies/details?mid=301`: Get details of a specific movie by its ID.
+### Admin Only
+- **POST** `/movies`: Add a new movie with JSON data containing title, genre, release year, and director.
+- **PUT** `/movies/<int:movie_id>`: Update movie information by specifying its ID and providing updated data in JSON format.
+- **DELETE** `/movies/<int:movie_id>`: Delete a movie from the catalog by its ID.
