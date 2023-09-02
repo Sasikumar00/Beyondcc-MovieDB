@@ -67,6 +67,22 @@ flask run
 2. Your API should now be running at `http://localhost:5000`.
 3. You can use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to interact with the API endpoints.
 
+## Database Setup
+1. Install MySQL server (ignore if already installed)
+2. Create a new database:
+```
+CREATE DATABASE beyondcc;
+```
+3. Import the database dump:
+```
+mysql -u your_username -p beyondcc < movie_api_database.sql
+```
+4. Configure the config.py with your database username and password:
+```
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://your_username:your_password@localhost/Beyondcc'
+```
+5. Test the database by making API calls
+
 ## API Endpoints
 
 - **GET** `/movies`: Retrieve a list of all movies.
