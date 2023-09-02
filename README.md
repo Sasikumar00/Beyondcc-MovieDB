@@ -80,3 +80,26 @@ flask run
 - **PATCH** `/admin/update_movie?mid=304`: Update movie information by specifying its ID and providing updated data in JSON format.
 - **DELETE** `/admin/delete_movie?mid=304`: Delete a movie from the catalog by its ID.
 - **GET** `/admin/users`: Get list of all registered users
+
+## Example Response
+```
+{
+    "data": [
+        {
+            "genres": "Documentary",
+            "id": 205,
+            "runtimeminutes": "95",
+            "title": "Istoriya grazhdanskoy voyny",
+            "year": "2021"
+        },
+        {
+            "genres": "Drama",
+            "id": 206,
+            "runtimeminutes": "78",
+            "title": "El realismo socialista",
+            "year": "2023"
+        }
+      ],
+      "status": "success"
+}
+```
