@@ -36,4 +36,20 @@ Follow these instructions to set up and run the Flask Movies API on your local m
 ```
 git clone https://github.com/yourusername/flask-movies-api.git
 ```
-
+2. Navigate the project directory:
+```
+cd server
+```
+3. Create a virual environment:
+```
+python -m venv venv
+```
+4. Activate the virtual environment
+   -On Windows:
+   ```
+   venv\Scripts\activate
+   ```
+   -On maxOS or Linux:
+   ```
+   source venv/bin/activate
+   ```
