@@ -71,6 +71,10 @@ flask run
 
 - **GET** `/movies`: Retrieve a list of all movies.
 - **GET** `/movies/details?mid=301`: Get details of a specific movie by its ID.
+- **POST** `/signup`: Sign up by providing name,email,password,passwordConfirm in JSON format.
+- **POST** `/login`: Login to recieve the JWT token. Login is required to add movies to favorites.
+- **GET** `/user/favoritess`: Get list of all the movies you added to favorites.
+- **POST** `/user/removeFav?mid=304`: Remove movie metadata from favorites by specifying its ID.
 #### Admin Only
 - **POST** `/admin/add_movie`: Add a new movie with JSON data containing title, year, movieLength, and genres.
 - **PATCH** `/admin/update_movie?mid=304`: Update movie information by specifying its ID and providing updated data in JSON format.
