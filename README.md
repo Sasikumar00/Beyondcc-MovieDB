@@ -74,7 +74,7 @@ flask run
 ```
 CREATE DATABASE beyondcc;
 ```
-3. Import the database dump:
+3. Import the database dump: (password required)
 ```
 mysql -u your_username -p beyondcc < movie_api_database.sql
 ```
