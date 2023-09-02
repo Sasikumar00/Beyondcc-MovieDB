@@ -44,12 +44,12 @@ cd server
 ```
 python -m venv venv
 ```
-4. Activate the virtual environment
-   -On Windows:
+4. Activate the virtual environment: <br />
+   On Windows:
    ```
    venv\Scripts\activate
    ```
-   -On maxOS or Linux:
+   On maxOS or Linux:
    ```
    source venv/bin/activate
    ```
