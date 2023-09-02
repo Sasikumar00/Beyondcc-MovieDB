@@ -9,6 +9,7 @@ This is a simple Flask-based RESTful API for managing a collection of movies. Wi
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+- [Database Setup](#database-setup)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 - [License](#license)
