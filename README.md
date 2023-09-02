@@ -71,7 +71,8 @@ flask run
 
 - **GET** `/movies`: Retrieve a list of all movies.
 - **GET** `/movies/details?mid=301`: Get details of a specific movie by its ID.
-### Admin Only
-- **POST** `/movies`: Add a new movie with JSON data containing title, genre, release year, and director.
-- **PUT** `/movies/<int:movie_id>`: Update movie information by specifying its ID and providing updated data in JSON format.
-- **DELETE** `/movies/<int:movie_id>`: Delete a movie from the catalog by its ID.
+#### Admin Only
+- **POST** `/admin/add_movie`: Add a new movie with JSON data containing title, year, movieLength, and genres.
+- **PATCH** `/admin/update_movie?mid=304`: Update movie information by specifying its ID and providing updated data in JSON format.
+- **DELETE** `/admin/delete_movie?mid=304`: Delete a movie from the catalog by its ID.
+- **GET** `/admin/users`: Get list of all registered users
