@@ -57,3 +57,12 @@ python -m venv venv
 ```
 pip install -r requirements.txt
 ```
+
+## Usage
+
+1. Start the Flask application:
+```
+flask run
+```
+2. Your API should now be running at `http://localhost:5000`.
+3. You can use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to interact with the API endpoints.
