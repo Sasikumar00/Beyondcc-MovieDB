@@ -74,7 +74,7 @@ CREATE DATABASE beyondcc;
 ```
 3. Import the database dump: (password required)
 ```
-mysql -u your_username -p beyondcc < movie_api_database.sql
+mysql -u your_username -p beyondcc < movies_api_database.sql
 ```
 4. Configure the config.py with your database username and password:
 ```
