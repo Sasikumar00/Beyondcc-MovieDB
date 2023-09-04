@@ -35,7 +35,7 @@ Follow these instructions to set up and run the Flask Movies API on your local m
 
 1. Clone this repository to your local machine:
 ```
-git clone https://github.com/yourusername/flask-movies-api.git
+git clone https://github.com/Sasikumar00/Beyondcc-MovieDB.git
 ```
 2. Navigate the project directory:
 ```
