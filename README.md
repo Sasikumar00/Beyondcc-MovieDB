@@ -121,3 +121,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://your_username:yo
     "status: "success"
 }
 ```
+
+### Users
+- ADMIN: Use `admin@gmail.com` and `admin12345` as the credencials to login in as admin and perform CRUD operations on movies database.
+- USER: Use `test@gmail.com` and `test12345` as the credencials to login in as user. This role has permission to view movie metadata, add movies to favorites and remove movies from favorites.
