@@ -99,22 +99,25 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://your_username:yo
 ## Example Response
 ```
 {
+    "Total movies": 249,
     "data": [
         {
-            "genres": "Documentary",
-            "id": 205,
-            "runtimeminutes": "95",
-            "title": "Istoriya grazhdanskoy voyny",
-            "year": "2021"
+            "director": "Victor Fleming",
+            "genre": "Adventure,  Family,  Fantasy,  Musical",
+            "id": 1,
+            "imdb_score": 8.3,
+            "name": "The Wizard of Oz",
+            "popularity": 83.0
         },
         {
-            "genres": "Drama",
-            "id": 206,
-            "runtimeminutes": "78",
-            "title": "El realismo socialista",
-            "year": "2023"
+            "director": "George Lucas",
+            "genre": "Action,  Adventure,  Fantasy,  Sci-Fi",
+            "id": 2,
+            "imdb_score": 8.8,
+            "name": "Star Wars",
+            "popularity": 88.0
         }
-      ],
-      "status": "success"
+    ],
+    "status: "success"
 }
 ```
