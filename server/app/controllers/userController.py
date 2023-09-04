@@ -3,6 +3,7 @@ from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identi
 import datetime
 from app.models.movieModel import Movie
 from app.models.userModel import User
+from app.models.favoriteModel import Favorite
 from app.config import db, bcrypt, nlp
 
 
@@ -69,12 +70,62 @@ class UserController:
             response = {'status': 'error', "message": 'No movie found!'}
         return jsonify(response), 200
     
+    #MOVIES TO FAVORITES
+    @jwt_required()
+    def addToFavorite():
+        mid = request.args.get('mid')
+        user = get_jwt_identity()
+        user_id = User.query.filter_by(email=user).first()
+        if user_id:
+            user_id = user_id.to_dict()['id']
+        if not user or not mid:
+            return jsonify({"status": "error", "message": "Invalid request!"})
+        existing_movie = Favorite.query.filter_by(movie_id=mid).first()
+        if existing_movie:
+            return jsonify({"status": "error", "message":"Movie already in favorites!"})
+        new_movie = Favorite(user_id=user_id, movie_id=int(mid))
+        db.session.add(new_movie)
+        db.session.commit()
+        return jsonify({"status": "success", "message": "Movie added to favorites"})
+
     #FAVORITE MOVIES
     @jwt_required()
     def favoriteMovies():
         user = get_jwt_identity()
-        return jsonify({"status": "success", "data": {"user": user}})
+        user_id = User.query.filter_by(email=user).first()
+        if user_id:
+            user_id = user_id.to_dict()['id']
+            favorites = Favorite.query.filter_by(user_id=user_id).all()
+            if len(favorites)>=1:
+                fav_movies_Ids = [fav.to_dict()['movie_id'] for fav in favorites]
+                fav_movies_list=[]
+                for mid in fav_movies_Ids:
+                    movie = Movie.query.filter_by(id = mid).first()
+                    if movie:
+                        movie = movie.to_dict()
+                        fav_movies_list.append(movie)
+                return jsonify({"status": "success", "data": fav_movies_list})
+            else:
+                return jsonify({"status": "success", "message": "No movies in your favorites"})
+        else:
+            return jsonify({"status": "error", "message": "Please login to continue!"})
     
+    #REMOVE MOVIE FROM FAVORITE
+    @jwt_required()
+    def removeFromFavorite():
+        user= get_jwt_identity()
+        userID = User.query.filter_by(email=user).first()
+        if userID:
+            userID = userID.to_dict()['id']
+        mid = int(request.args.get('mid'))
+        fav_movie = Favorite.query.filter_by(user_id=userID, movie_id=mid).first()
+        if fav_movie:
+            db.session.delete(fav_movie)
+            db.session.commit()
+            return jsonify({"status": "success", "message": "Movie removed from favorites"})
+        else:
+            return jsonify({"status": "error", "message": "Movie not found in favorites!"})
+
     #USER REGISTER
     def userSignUp():
         data = request.json
