@@ -61,7 +61,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Set the FLASK_APP:
+1. Set the FLASK_APP: <br />
    On bash:
    ```
    export FLASK_APP = main
