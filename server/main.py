@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 # from app.models.userModel import db as user_db
 
 
-app.config['JWT_SECRET_KEY'] = 'your-secret-key'
+app.config['JWT_SECRET_KEY'] = '3sdfg@#%235*-~32523@#%@'
 jwt = JWTManager(app)
 db = db
 migrate = Migrate(app, db)
