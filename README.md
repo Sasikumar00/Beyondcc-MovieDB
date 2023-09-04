@@ -61,12 +61,21 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Start the Flask application:
+1. Set the FLASK_APP:
+   On bash:
+   ```
+   export FLASK_APP = main
+   ```
+   On Windows:
+   ```
+   set FLASK_APP = main
+   ```
+2. Start the Flask application:
 ```
 flask run
 ```
-2. Your API should now be running at `http://localhost:5000`.
-3. You can use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to interact with the API endpoints.
+3. Your API should now be running at `http://localhost:5000`.
+4. You can use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to interact with the API endpoints.
 
 ## Database Setup
 1. Install MySQL server (ignore if already installed)
