@@ -11,6 +11,8 @@ This is a simple Flask-based RESTful API for managing a collection of movies. Wi
 - [Usage](#usage)
 - [Database Setup](#database-setup)
 - [API Endpoints](#api-endpoints)
+- [Example Response](#example-response)
+- [Users and Roles](#users)
 
 ## Features
 
@@ -59,12 +61,21 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Start the Flask application:
+1. Set the FLASK_APP: <br />
+   On bash:
+   ```
+   export FLASK_APP = main
+   ```
+   On Windows:
+   ```
+   set FLASK_APP = main
+   ```
+2. Start the Flask application:
 ```
 flask run
 ```
-2. Your API should now be running at `http://localhost:5000`.
-3. You can use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to interact with the API endpoints.
+3. Your API should now be running at `http://localhost:5000`.
+4. You can use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to interact with the API endpoints.
 
 ## Database Setup
 1. Install MySQL server (ignore if already installed)
@@ -121,3 +132,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://your_username:yo
     "status: "success"
 }
 ```
+
+### Users
+- ADMIN: Use `admin@gmail.com` and `admin12345` as the credencials to login in as admin and perform CRUD operations on movies database.
+  - API DOCUMENTATION FOR ADMIN API: https://documenter.getpostman.com/view/24511982/2s9Y5eMzRK
+- USER: Use `test@gmail.com` and `test12345` as the credencials to login in as user. This role has permission to view movie metadata, add movies to favorites and remove movies from favorites.
+  - API DOCUMENTATION FOR USER API: https://documenter.getpostman.com/view/24511982/2s9Y5eMzRM
