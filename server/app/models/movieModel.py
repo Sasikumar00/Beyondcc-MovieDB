@@ -4,7 +4,8 @@ from app.config import db
 class Movie(db.Model, SerializerMixin):
     __tablename__ = 'movies'
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100))
-    year = db.Column(db.String(4))
-    runtimeminutes = db.Column(db.String(4))
-    genres = db.Column(db.String(200))
+    popularity = db.Column(db.Float)
+    director = db.Column(db.String(255))
+    genre = db.Column(db.String(255))
+    imdb_score = db.Column(db.Float)
+    name = db.Column(db.String(200))

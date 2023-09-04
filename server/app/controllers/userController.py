@@ -11,25 +11,26 @@ class UserController:
     def movieList():
         movies = Movie.query.all()
         movies_dict_list = [movie.to_dict() for movie in movies]
-        return jsonify({"status": "success", "data": movies_dict_list})
+        return jsonify({"status": "success", "Total movies": len(movies_dict_list), "data": movies_dict_list})
     
     #MOVIE SEARCH OR FILTER
     def movieSearch():
         keyword = request.args.get('keyword')
         genres = request.args.getlist('genres')
-        movieLength = request.args.getlist('movieLength')
-        year = request.args.getlist('year')
+        imdbScore = request.args.get('imdbScore')
+        popularity = request.args.get('popularity')
         # print(genres, movieLength, year)     
         if keyword:
             doc = nlp(keyword)
             keywords = [token.text for token in doc if not token.is_stop]
-            print(keywords)
             movies = Movie.query.all()
             movies_dict_list = [movie.to_dict() for movie in movies]
             search_movies = []
             for i in movies_dict_list:
                 for j in keywords:
-                    if j.lower() in i['title'].lower():
+                    if j.lower() in i['name'].lower():
+                        search_movies.append(i)
+                    if j.lower() in i['director'].lower():
                         search_movies.append(i)
             if len(search_movies)>=1:
                 return jsonify({"status": "success", "data": search_movies})
@@ -42,14 +43,14 @@ class UserController:
                 if len(genres) >= 1:
                     genre_match = False
                     for j in genres:
-                        if j.lower().capitalize() in i['genres'].split(','):
+                        if j.lower().capitalize() in i['genre'].split(','):
                             genre_match = True
                             break  # Exit the loop since a match is found
                     if not genre_match:
                         continue
-                if len(movieLength) >= 1 and i['runtimeminutes'] not in movieLength:
+                if imdbScore and i['imdb_score'] < float(imdbScore):
                     continue
-                if len(year) >= 1 and i['year'] not in year:
+                if popularity and i['popularity'] < float(popularity):
                     continue
                 filtered_movies.append(i)
             if len(filtered_movies)>=1:
